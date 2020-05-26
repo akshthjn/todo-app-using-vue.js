@@ -1,0 +1,19 @@
+<div id="app">
+  <task-list :tasks="tasks"></task-list>
+</div>
+
+<template id="task-list">
+    <section class="tasks">
+      <h1>
+        Todo App
+        <transition name="fade">
+          <small v-if="incomplete">({{ incomplete }})</small>
+        </transition>
+        
+      </h1>
+      <div class="tasks__new input-group">
+        <input type="text"
+               class="input-group-field"
+               v-model="newTask"
+               @keyup.enter="addTask"
+               placeholder="New task"
